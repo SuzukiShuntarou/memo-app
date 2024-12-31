@@ -29,84 +29,27 @@ export default function App() {
   }
 
   return (
-    <>
-      <div className="container">
-        <div className="item">
-          <ul>
-            <List memos={memos} onClick={handleClickEdit} />
-            <li>
-              <span onClick={handleClickCreate}>+</span>
-            </li>
-          </ul>
-        </div>
-        <div className="item">
-          {isEdit && (
-            <Edit
-              selectedMemo={selectedMemo}
-              setSelectedMemo={setSelectedMemo}
-              handleUpdateClick={() =>
-                update({ selectedMemo, memos, setMemos })
-              }
-              handleDeleteClick={() =>
-                destroy({ selectedMemo, memos, setMemos, setIsEdit })
-              }
-            />
-          )}
-        </div>
+    <div className="container">
+      <div className="item">
+        <ul>
+          <List memos={memos} onClick={handleClickEdit} />
+          <li>
+            <span onClick={handleClickCreate}>+</span>
+          </li>
+        </ul>
       </div>
-      <Initial />
-    </>
-  );
-}
-
-// デバッグ用
-function Initial() {
-  function handleInitial() {
-    // イニシャルデータをセット;
-    localStorage.setItem(
-      "memos",
-      JSON.stringify([
-        {
-          id: 0,
-          title: "タイトル",
-          content: "内容",
-        },
-        {
-          id: 1,
-          title: "タイトル1",
-          content: "内容1",
-        },
-        {
-          id: 2,
-          title: "タイトル2",
-          content: "内容2",
-        },
-        {
-          id: 3,
-          title: "タイトル3",
-          content: "内容3",
-        },
-      ])
-    );
-  }
-
-  return (
-    <>
-      <br />
-      <br />
-      <br />
-      <br />
-      <form>
-        デバッグ用：
-        <button
-          id="initialDataButton" // id 属性を追加
-          name="initialData" // name 属性を追加
-          type="submit"
-          onClick={handleInitial}
-        >
-          イニシャルデータをセット
-        </button>
-      </form>
-    </>
+      <div className="item">
+        {isEdit && (
+          <Edit
+            selectedMemo={selectedMemo}
+            setSelectedMemo={setSelectedMemo}
+            handleUpdateClick={() => update({ selectedMemo, memos, setMemos })}
+            handleDeleteClick={() =>
+              destroy({ selectedMemo, memos, setMemos, setIsEdit })
+            }
+          />
+        )}
+      </div>
+    </div>
   );
 }
