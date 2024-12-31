@@ -16,15 +16,15 @@ export function Edit({
   }
 
   return (
-    <form class="edit-form">
+    <form className="edit-form">
       <textarea
-        class="edit-area"
+        className="edit-area"
         id={selectedMemo.id}
         name={selectedMemo.title}
         value={`${selectedMemo.title}\n${selectedMemo.content}`}
         onChange={handleChange}
       />
-      <div class="edit-btn">
+      <div className="edit-btn">
         <Button buttonName="編集" onClick={handleUpdateClick} />
         <Button buttonName="削除" onClick={handleDeleteClick} />
       </div>

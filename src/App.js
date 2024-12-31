@@ -30,8 +30,8 @@ export default function App() {
 
   return (
     <>
-      <div class="container">
-        <div class="item">
+      <div className="container">
+        <div className="item">
           <ul>
             <List memos={memos} onClick={handleClickEdit} />
             <li>
@@ -39,7 +39,7 @@ export default function App() {
             </li>
           </ul>
         </div>
-        <div class="item">
+        <div className="item">
           {isEdit ? (
             <Edit
               selectedMemo={selectedMemo}
@@ -88,7 +88,7 @@ function Initial() {
           title: "タイトル3",
           content: "内容3",
         },
-      ]),
+      ])
     );
   }
 
