@@ -88,7 +88,7 @@ function Initial() {
           title: "タイトル3",
           content: "内容3",
         },
-      ])
+      ]),
     );
   }
 

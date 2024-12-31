@@ -19,7 +19,7 @@ export function update({ selectedMemo, memos, setMemos }) {
   const updatedMemos = memos.map((memo) =>
     memo.id === selectedMemo.id
       ? { ...memo, title: selectedMemo.title, content: selectedMemo.content }
-      : memo
+      : memo,
   );
   setMemos(updatedMemos);
   storeLocalStorage(updatedMemos);
