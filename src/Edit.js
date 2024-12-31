@@ -19,8 +19,7 @@ export function Edit({
     <form className="edit-form">
       <textarea
         className="edit-area"
-        id={selectedMemo.id}
-        name={selectedMemo.title}
+        name="editarea"
         value={`${selectedMemo.title}\n${selectedMemo.content}`}
         onChange={handleChange}
       />
