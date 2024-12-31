@@ -40,7 +40,7 @@ export default function App() {
           </ul>
         </div>
         <div className="item">
-          {isEdit ? (
+          {isEdit && (
             <Edit
               selectedMemo={selectedMemo}
               setSelectedMemo={setSelectedMemo}
@@ -51,8 +51,6 @@ export default function App() {
                 destroy({ selectedMemo, memos, setMemos, setIsEdit })
               }
             />
-          ) : (
-            ""
           )}
         </div>
       </div>
