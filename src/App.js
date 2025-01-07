@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { MemoEdit } from "./MemoEdit";
-import { MemoList } from "./MemoList";
+import { MemoEdit } from "./components/MemoEdit";
+import { MemoList } from "./components/MemoList";
 import { create, update, destroy } from "./Database";
 
 export default function App() {
