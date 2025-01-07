@@ -4,7 +4,7 @@ function storeLocalStorage(updatedMemos) {
 
 export function create({ memos, setMemos, setSelectedMemo }) {
   const newMemo = {
-    id: memos.length,
+    id: crypto.randomUUID(),
     title: "新規メモ",
     content: "",
   };
