@@ -1,6 +1,6 @@
 import { Button } from "./Button";
 
-export function Edit({
+export function MemoEdit({
   selectedMemo,
   setSelectedMemo,
   handleUpdateClick,

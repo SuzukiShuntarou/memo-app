@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Edit } from "./Edit";
+import { MemoEdit } from "./MemoEdit";
 import { MemoList } from "./MemoList";
 import { create, update, destroy } from "./Database";
 
@@ -40,7 +40,7 @@ export default function App() {
       </div>
       <div className="item">
         {isEdit && (
-          <Edit
+          <MemoEdit
             selectedMemo={selectedMemo}
             setSelectedMemo={setSelectedMemo}
             handleUpdateClick={() => update({ selectedMemo, memos, setMemos })}
