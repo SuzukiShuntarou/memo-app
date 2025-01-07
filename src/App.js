@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Edit } from "./Edit";
-import { List } from "./List";
+import { MemoList } from "./MemoList";
 import { create, update, destroy } from "./Database";
 
 export default function App() {
@@ -32,7 +32,7 @@ export default function App() {
     <div className="container">
       <div className="item">
         <ul>
-          <List memos={memos} onClick={handleClickEdit} />
+          <MemoList memos={memos} onClick={handleClickEdit} />
           <li>
             <span onClick={handleClickCreate}>+</span>
           </li>

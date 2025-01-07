@@ -1,4 +1,4 @@
-export function List({ memos, onClick }) {
+export function MemoList({ memos, onClick }) {
   return (
     <>
       {memos.map((memo) => (
