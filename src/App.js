@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
+import { Button } from "./components/Button";
 import { MemoEdit } from "./components/MemoEdit";
 import { MemoList } from "./components/MemoList";
 import { create, update, destroy } from "./Database";
+import { useLogin } from "./hooks/login-hooks";
 
 export default function App() {
   const [memos, setMemos] = useState([]);
   const [isEdit, setIsEdit] = useState(false);
   const [selectedMemo, setSelectedMemo] = useState("");
+  const { isLogin, handleLogin } = useLogin();
 
   useEffect(() => {
     const storageMemos = localStorage.getItem("memos");
@@ -33,9 +36,11 @@ export default function App() {
       <div className="item">
         <ul>
           <MemoList memos={memos} onClick={handleClickEdit} />
-          <li>
-            <span onClick={handleClickCreate}>+</span>
-          </li>
+          {isLogin && (
+            <li>
+              <span onClick={handleClickCreate}>+</span>
+            </li>
+          )}
         </ul>
       </div>
       <div className="item">
@@ -49,6 +54,14 @@ export default function App() {
             }
           />
         )}
+      </div>
+      <div className="item">
+        <div className="login-btn">
+          <Button
+            buttonName={isLogin ? "ログアウト" : "ログイン"}
+            onClick={handleLogin}
+          />
+        </div>
       </div>
     </div>
   );

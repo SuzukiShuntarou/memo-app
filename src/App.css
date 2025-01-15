@@ -52,3 +52,7 @@ span:hover {
 button:hover {
   cursor: pointer;
 }
+
+.login-btn {
+  border-radius: 5px;
+}

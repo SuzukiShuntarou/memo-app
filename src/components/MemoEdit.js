@@ -1,4 +1,5 @@
 import { Button } from "./Button";
+import { useLogin } from "../hooks/login-hooks";
 
 export function MemoEdit({
   selectedMemo,
@@ -6,13 +7,17 @@ export function MemoEdit({
   handleUpdateClick,
   handleDeleteClick,
 }) {
+  const { isLogin } = useLogin();
+
   function handleChange(event) {
-    const inputs = event.target.value.split("\n");
-    setSelectedMemo({
-      ...selectedMemo,
-      title: inputs[0],
-      content: inputs.slice(1).join("\n"),
-    });
+    if (isLogin) {
+      const inputs = event.target.value.split("\n");
+      setSelectedMemo({
+        ...selectedMemo,
+        title: inputs[0],
+        content: inputs.slice(1).join("\n"),
+      });
+    }
   }
 
   return (
@@ -23,10 +28,12 @@ export function MemoEdit({
         value={`${selectedMemo.title}\n${selectedMemo.content}`}
         onChange={handleChange}
       />
-      <div className="edit-btn">
-        <Button buttonName="編集" onClick={handleUpdateClick} />
-        <Button buttonName="削除" onClick={handleDeleteClick} />
-      </div>
+      {isLogin && (
+        <div className="edit-btn">
+          <Button buttonName="編集" onClick={handleUpdateClick} />
+          <Button buttonName="削除" onClick={handleDeleteClick} />
+        </div>
+      )}
     </form>
   );
 }
