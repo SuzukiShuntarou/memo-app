@@ -3,13 +3,12 @@ import { Button } from "./components/Button";
 import { MemoEdit } from "./components/MemoEdit";
 import { MemoList } from "./components/MemoList";
 import { create, update, destroy } from "./Database";
-import { useSelectedMemo } from "./hooks/selectedmemo-hook";
 import { useLogin } from "./hooks/login-hooks";
 
 export default function App() {
   const [memos, setMemos] = useState([]);
   const [isEdit, setIsEdit] = useState(false);
-  const { selectedMemo, setSelectedMemo } = useSelectedMemo();
+  const [selectedMemo, setSelectedMemo] = useState("");
   const { isLogin, handleLogin } = useLogin();
 
   useEffect(() => {
@@ -47,6 +46,8 @@ export default function App() {
       <div className="item">
         {isEdit && (
           <MemoEdit
+            selectedMemo={selectedMemo}
+            setSelectedMemo={setSelectedMemo}
             handleUpdateClick={() => update({ selectedMemo, memos, setMemos })}
             handleDeleteClick={() =>
               destroy({ selectedMemo, memos, setMemos, setIsEdit })

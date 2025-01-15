@@ -1,9 +1,12 @@
 import { Button } from "./Button";
-import { useSelectedMemo } from "../hooks/selectedmemo-hook";
 import { useLogin } from "../hooks/login-hooks";
 
-export function MemoEdit({ handleUpdateClick, handleDeleteClick }) {
-  const { selectedMemo, setSelectedMemo } = useSelectedMemo();
+export function MemoEdit({
+  selectedMemo,
+  setSelectedMemo,
+  handleUpdateClick,
+  handleDeleteClick,
+}) {
   const { isLogin } = useLogin();
 
   function handleChange(event) {
